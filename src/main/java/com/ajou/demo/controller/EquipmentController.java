@@ -2,6 +2,7 @@ package com.ajou.demo.controller;
 
 import com.ajou.demo.controller.response.equipment.EquipmentListResponse;
 import com.ajou.demo.controller.response.equipment.EquipmentResponse;
+import com.ajou.demo.dto.EquipmentDto;
 import com.ajou.demo.service.EquipmentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,7 +30,8 @@ public class EquipmentController {
 
     @GetMapping("/{id}")
     public EquipmentResponse findById(@PathVariable Long id) {
-        return EquipmentResponse.of(equipmentService.findById(id));
+        EquipmentDto equipmentDto = equipmentService.findById(id);
+        return EquipmentResponse.of(equipmentDto);
     }
 
 }

@@ -9,12 +9,21 @@ const req = ref("");
 const equipments = ref(Array(10).fill({
   id:0,
   use: "",
+  equipmentName: "",
   modelName: "",
-  equipmentName: ""
+  os:"",
+  introductionDate:"",
+  assetNumber:"",
+  sn:"",
+  number:""
 }));
+const param = ref({
+  page
+})
 
 const search = ()=>{
-  axios.get(`/api/equipments`)
+  const param = {}
+  axios.get(`/api/main-computer-equipments`)
     .then(respone=>{
       equipments.value = []
 
@@ -22,14 +31,19 @@ const search = ()=>{
         equipments.value =  Array(10).fill({
           id:0,
           use: "",
+          equipmentName: "",
           modelName: "",
-          equipmentName: ""
+          os:"",
+          introductionDate:"",
+          assetNumber:"",
+          sn:"",
+          number:""
         })
 
         alert("장비가 없습니다.")
       }
 
-      respone.data.forEach((r)=>{
+      respone.data.items.forEach((r)=>{
         equipments.value.push(r)
       })
     })

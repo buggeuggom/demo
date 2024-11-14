@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import EquipmentsVue from "@/views/equipment/EquipmentsVue.vue";
-import EquipmentVue from "@/views/equipment/EquipmentVue.vue";
+import MainComputerEquipments from "@/views/mainCopmuterEquipment/MainComputerEquipmentsVue.vue";
+import EquipmentVue from "@/views/mainCopmuterEquipment/EquipmentVue.vue";
+import ServersVue from "@/views/server/ServersVue.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -12,9 +13,14 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/equipments',
-      name: 'equipments',
-      component: EquipmentsVue,
+      path: '/servers',
+      name: 'servers',
+      component: ServersVue,
+    },
+    {
+      path: '/main-computer-equipments',
+      name: 'main-computer-equipments',
+      component: MainComputerEquipments,
     },
     {
       path: '/equipments/:id',
