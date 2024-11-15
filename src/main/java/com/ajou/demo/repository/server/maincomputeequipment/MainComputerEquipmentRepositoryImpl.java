@@ -1,7 +1,7 @@
-package com.ajou.demo.repository.mainComputeEquipment;
+package com.ajou.demo.repository.server.maincomputeequipment;
 
-import com.ajou.demo.controller.request.mainComputerEquipment.MainComputerEquipmentSearch;
-import com.ajou.demo.domain.MainComputerEquipment;
+import com.ajou.demo.controller.request.maincomputerequipment.MainComputerEquipmentSearch;
+import com.ajou.demo.domain.server.MainComputerEquipment;
 import com.querydsl.core.types.dsl.BooleanExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +10,8 @@ import org.springframework.data.domain.PageImpl;
 
 import java.util.List;
 
-import static com.ajou.demo.domain.QMainComputerEquipment.mainComputerEquipment;
+import static com.ajou.demo.domain.server.QMainComputerEquipment.mainComputerEquipment;
+
 
 @RequiredArgsConstructor
 public class MainComputerEquipmentRepositoryImpl implements MainComputerEquipmentRepositoryCustom {
@@ -28,7 +29,6 @@ public class MainComputerEquipmentRepositoryImpl implements MainComputerEquipmen
                 .fetchFirst();
 
 
-
         List<MainComputerEquipment> items = jpaQueryFactory.selectFrom(mainComputerEquipment)
                 .where(getUserLike(search.getUse()),
                         getEquipmentNameLike(search.getEquipmentName()))
@@ -43,12 +43,12 @@ public class MainComputerEquipmentRepositoryImpl implements MainComputerEquipmen
     private static BooleanExpression getUserLike(String use) {
 
         if (use == null || use.isBlank()) return null;
-        return mainComputerEquipment.use.like(use);
+        return mainComputerEquipment.use.lower().like("%" + use.toLowerCase() + "%");
     }
 
     private static BooleanExpression getEquipmentNameLike(String equipmentName) {
 
-        if(equipmentName == null || equipmentName.isBlank()) return null;
-        return mainComputerEquipment.equipmentName.like(equipmentName);
+        if (equipmentName == null || equipmentName.isBlank()) return null;
+        return mainComputerEquipment.equipmentName.lower().like("%" + equipmentName + "%");
     }
 }

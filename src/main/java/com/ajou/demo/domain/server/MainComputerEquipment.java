@@ -1,6 +1,5 @@
-package com.ajou.demo.domain;
+package com.ajou.demo.domain.server;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;

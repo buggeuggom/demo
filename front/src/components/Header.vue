@@ -3,8 +3,8 @@
   <el-header>
     <el-menu mode="horizontal" router>
       <el-menu-item index="/">Home</el-menu-item>
-      <el-menu-item index="/servers">서버대장</el-menu-item>
-      <el-menu-item index="/equipments">장비</el-menu-item>
+      <el-menu-item index="/main-computer-equipments">주전산장비(서버)</el-menu-item>
+<!--      <el-menu-item index="/servers">서버대장</el-menu-item>-->
 
     </el-menu>
   </el-header>

@@ -1,8 +1,6 @@
-package com.ajou.demo.dto;
+package com.ajou.demo.dto.server;
 
-import com.ajou.demo.domain.Equipment;
-import com.ajou.demo.domain.MainComputerEquipment;
-import lombok.AccessLevel;
+import com.ajou.demo.domain.server.MainComputerEquipment;
 import lombok.Builder;
 import lombok.Getter;
 

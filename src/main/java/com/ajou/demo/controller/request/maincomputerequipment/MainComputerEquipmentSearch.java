@@ -1,4 +1,4 @@
-package com.ajou.demo.controller.request.mainComputerEquipment;
+package com.ajou.demo.controller.request.maincomputerequipment;
 
 import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;

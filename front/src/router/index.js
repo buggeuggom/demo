@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import MainComputerEquipments from "@/views/mainCopmuterEquipment/MainComputerEquipmentsVue.vue";
-import EquipmentVue from "@/views/mainCopmuterEquipment/EquipmentVue.vue";
+import MainComputerEquipmentVue from "@/views/mainCopmuterEquipment/MainComputerEquipmentVue.vue";
 import ServersVue from "@/views/server/ServersVue.vue";
 
 const router = createRouter({
@@ -23,9 +23,9 @@ const router = createRouter({
       component: MainComputerEquipments,
     },
     {
-      path: '/equipments/:id',
-      name: 'equipment',
-      component: EquipmentVue,
+      path: '/main-computer-equipments/:id',
+      name: 'main-computer-equipment',
+      component: MainComputerEquipmentVue,
       props: true
     },
   ],
